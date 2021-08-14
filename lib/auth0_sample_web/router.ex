@@ -29,7 +29,7 @@ defmodule Auth0SampleWeb.Router do
   scope "/", Auth0SampleWeb do
     pipe_through :browser
 
-    get "/", HomeController, :index
+    live "/", HomeLive, :index, session: {Auth0SampleWeb.Helpers, :keep_current_user, []}
   end
 
   scope "/", Auth0SampleWeb do
